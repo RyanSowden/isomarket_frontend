@@ -138,11 +138,20 @@ function addNumbers(result){ //fucntion to get the numbers on click and added to
 				return parseInt(a) + parseInt(b);
 			
 			},)
-			console.log(total)
+			let xhr = new XMLHttpRequest();
+			url = ("http://127.0.0.1:5000/addvalue")
+			credentials = true
+			xhr.open("POST",url,false)
+			xhr.withCredentials = true;
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send(`total=${total}`)
+			if (xhr.status == 200){
+				console.log(xhr.response)
+			}
 		}
 	}
-
-
 }
+
+
 
 
