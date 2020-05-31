@@ -131,13 +131,18 @@ document.getElementById('result').innerHTML = arr; //writing the results to the 
 function addNumbers(result){ //fucntion to get the numbers on click and added to the array
 	arr.push(result.value);
 	document.getElementById('result').innerHTML = arr;
+	document.getElementById('add').onclick = function(){
+		let total = 0;
+		for(let i=0; i< 1 ;  i++){
+			total = arr.reduce(function(a,b){;
+				return parseInt(a) + parseInt(b);
+			
+			},)
+			console.log(total)
+		}
+	}
 
 
-}
-function addResult(){
-	let num = arr.reduce();
-	let total = 
-	document.getElementById('sum').innerHTML = 
 }
 
 
