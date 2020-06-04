@@ -39,13 +39,13 @@ function showWorkers(){
                   		let newCell = newRow.insertCell();
 
 				//Marisee value
-                  		newCell.innerHTML +="<tr><td>" + result[0][2] + "</td></tr>";
+                  		newCell.innerHTML +="<tr><td>" + result[2][2] + "</td></tr>";
 				//Destiny value
                   		newCell = newRow.insertCell();
-				newCell.innerHTML +="<tr><td>" + result[1][2] + "</td></tr>";
+				newCell.innerHTML +="<tr><td>" + result[0][2] + "</td></tr>";
 				//Crystal value
                   		newCell = newRow.insertCell();
-                  		newCell.innerHTML +="<tr><td>" + result[2][2] + "</td></tr>";
+                  		newCell.innerHTML +="<tr><td>" + result[1][2] + "</td></tr>";
 		  }
 		}
 	}
@@ -69,19 +69,27 @@ function logOut(){
 	}
 
 }
+//button to go back to the home screen
+function goBack(){
+	window.location.href = ("home.html")
+}
 // opening the add/minus form
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
+function openFormMinus() {
+  document.getElementById("minusForm").style.display = "block";
+}
+// opening the add/minus form
+function openFormAdd() {
+  document.getElementById("addForm").style.display = "block";
 }
 // closing the add/minus form
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+  document.getElementById("addForm").style.display = "none";
 }
 
 //function to post the worker to have value added to their account
 function workerAdd(){
 	let xhr = new XMLHttpRequest();
-	let worker = document.getElementById("workers").value;
+	let worker = document.getElementById("workeradd").value;
 	for(let i=0; i < 1; i++){
 		url = ("http://127.0.0.1:5000/home")
 		credentials = true
@@ -94,17 +102,37 @@ function workerAdd(){
 				alert("Something went wrong")
 			}else{
 				worker_result = JSON.parse(xhr.response)
-    				window.location.href = worker_result // response is the server	
+    				window.location.href = worker_result // response from the server	
 		}
 
 	}
 	}
 }
 
+function workerMinus(){
+	let xhr = new XMLHttpRequest();
+	let worker = document.getElementById("workerminus").value;
+	for(let i=0; i < 1; i++){
+		url = ("http://127.0.0.1:5000/home")
+		credentials = true
+		xhr.open("POST",url, true)
+		xhr.withCredentials = true;
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send(`worker=${worker}`)
+		xhr.onload = function(){
+			if (xhr.status != 200){
+				alert("Something went wrong")
+			}else{
+    				window.location.href = ('minus.html')	
+		}
 
+	}
+	}
+}
+//function to show the balance to be added
 function showValue(){
 	let xhr = new XMLHttpRequest();
-	url = ("http://127.0.0.1:5000/add")
+	url = ("http://127.0.0.1:5000/getworker")
 	credentials = true
 	xhr.open("POST",url, true)
 	xhr.withCredentials = true;
@@ -126,22 +154,22 @@ function showValue(){
 		}
 	}
 	
-let arr = []//setting empty array for numbers to be added in
-document.getElementById('result').innerHTML = arr; //writing the results to the HTML
+let addArr = []//setting empty array for numbers to be added in
+document.getElementById('result').innerHTML = addArr; //writing the results to the HTML
 function addNumbers(result){ //fucntion to get the numbers on click and added to the array
-	arr.push(result.value);
-	document.getElementById('result').innerHTML = arr;
+	addArr.push(result.value);
+	document.getElementById('result').innerHTML = addArr;
 	document.getElementById('add').onclick = function(){
 		let total = 0;
 		for(let i=0; i< 1 ;  i++){
-			total = arr.reduce(function(a,b){;
-				return parseInt(a) + parseInt(b);
+			total = addArr.reduce(function(a,b){;
+				return parseInt(a) + parseInt(b)
 			
 			},)
 			let xhr = new XMLHttpRequest();
 			url = ("http://127.0.0.1:5000/addvalue")
 			credentials = true
-			xhr.open("POST",url,false)
+			xhr.open("POST",url,true)
 			xhr.withCredentials = true;
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xhr.send(`total=${total}`)
@@ -153,5 +181,30 @@ function addNumbers(result){ //fucntion to get the numbers on click and added to
 }
 
 
+let minusArr = []//setting empty array for numbers to be minused 
+document.getElementById('result').innerHTML = minusArr; //writing the results to the HTML
+function minusNumbers(result){ //fucntion to get the numbers on click and added to the array
+	minusArr.push(result.value);
+	document.getElementById('result').innerHTML = minusArr;
+	document.getElementById('minus').onclick = function(){
+		let total = 0;
+		for(let i=0; i< 1 ;  i++){
+			total = minusArr.reduce(function(a,b){;
+				return parseInt(a) + parseInt(b)
+			
+			},)
+			let xhr = new XMLHttpRequest();
+			url = ("http://127.0.0.1:5000/minusvalue")
+			credentials = true
+			xhr.open("POST",url,false)
+			xhr.withCredentials = true;
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send(`total=${total}`)
+			if (xhr.status == 200){
+				console.log(xhr.response)
+			}
+		}
+	}
+}
 
 

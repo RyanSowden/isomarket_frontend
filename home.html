@@ -20,20 +20,32 @@
       </head>
     <body onload="showWorkers()">
       <h1 class="text-center">Welcome</h1>
-      <button class="btn btn-danger pull-right" onclick="logOut()">Logout</button>		      <button class="btn btn-success" id='add' onclick="openForm()">Add Value</button>
-      <button class="btn btn-primary" onclick="">Minus Value</button>
+      <button class="btn btn-danger pull-right" onclick="logOut()">Logout</button>		   <button class="btn btn-success" id='add' onclick="openFormAdd()">Add Value</button>
+      <button class="btn btn-primary" onclick="openFormMinus()">Minus Value</button>
       </div>
 
-	    <div class="form-popup" id="myForm">
+	    <div class="form-popup" id="addForm">
 		<form>
-  		<select id="workers" name="workers">
-    		<option id="worker">Marisee</option>
-    		<option id="worker">Destiny</option>
-    		<option id="worker">Crystal</option>
-		</select>
+  			<select id="workeradd" name="workers">
+    			<option id="worker">Marisee</option>
+    			<option id="worker">Destiny</option>
+    			<option id="worker">Crystal</option>
+			</select>
 
-		<button type="button" onclick="workerAdd();">Submit</button>
-		<span class="close">&times;</span>
+			<button type="button" onclick="workerAdd();">Submit</button>
+			<span class="close">&times;</span>
+		</form>
+	    </div>
+	    <div class="form-popup" id="minusForm">
+		<form>
+  			<select id="workerminus" name="workers">
+    			<option id="worker">Marisee</option>
+    			<option id="worker">Destiny</option>
+    			<option id="worker">Crystal</option>
+			</select>
+
+			<button type="button" onclick="workerMinus();">Submit</button>
+			<span class="close">&times;</span>
 		</form>
 	    </div>
        <div class="section">
@@ -42,13 +54,13 @@
 			<table class="table header" id="table">
                			<thead>
                   			<tr>
-						<div class=" col-lg-3 col-md-3col-sm-3">
+						<div>
 							<th>Marisee</th>
 			  			</div>
-			  			<div class="col-lg-3 col-md-3col-sm-3">
+			  			<div>
                      					<th>Destiny</th>
 			  			</div>
-			  			<div class="col-lg-3 col-md-3 col-sm-3">
+			  			<div>
                      					<th>Crystal</th>
 			  			</div>
                   			</tr>
