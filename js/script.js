@@ -35,18 +35,33 @@ function showWorkers(){
 		}else { //else dispaly the name and values of the workers
 			result = JSON.parse(xhr.response)
 			for (let i = 0; i < 1; i++){
-				let newRow = document.getElementById('table').insertRow();
-                  		let newCell = newRow.insertCell();
+				let worker1 = document.querySelector('.worker1');
+				let worker1Name = document.createElement("div");
+				let worker1Value = document.querySelector('.worker1Value');
+				let value1 = document.createElement("div");
+				worker1.innerHTML = "<div class=\"card\">"+ result[0][1] +"</div>"
+				worker1.appendChild(worker1Name);
+				worker1Value.innerHTML = "<div class=\"card\">"+ result[0][2] +"</div>"
+				worker1Value.appendChild(value1);
 
-				//Marisee value
-                  		newCell.innerHTML +="<tr><td>" + result[2][2] + "</td></tr>";
-				//Destiny value
-                  		newCell = newRow.insertCell();
-				newCell.innerHTML +="<tr><td>" + result[0][2] + "</td></tr>";
-				//Crystal value
-                  		newCell = newRow.insertCell();
-                  		newCell.innerHTML +="<tr><td>" + result[1][2] + "</td></tr>";
-		  }
+				let worker2 = document.querySelector('.worker2');
+				let worker2Name = document.createElement("div");
+				let worker2Value = document.querySelector('.worker2Value');
+				let value2 = document.createElement("div");
+				worker2.innerHTML = "<div class=\"card\">"+ result[1][1] +"</div>"
+				worker2.appendChild(worker2Name);
+				worker2Value.innerHTML = "<div class=\"card\">"+ result[1][2] +"</div>"
+				worker2Value.appendChild(value2);
+		 
+				let worker3 = document.querySelector('.worker3');
+				let worker3Name = document.createElement("div");
+				let worker3Value = document.querySelector('.worker3Value');
+				let value3 = document.createElement("div");
+				worker3.innerHTML = "<div class=\"card\">"+ result[2][1] +"</div>"
+				worker3.appendChild(worker3Name);
+				worker3Value.innerHTML = "<div class=\"card\">"+ result[2][2] +"</div>"
+				worker3Value.appendChild(value3);
+			}
 		}
 	}
 }
@@ -89,23 +104,23 @@ function closeForm() {
 //function to post the worker to have value added to their account
 function workerAdd(){
 	let xhr = new XMLHttpRequest();
-	let worker = document.getElementById("workeradd").value;
+	let worker = document.getElementById("worker").value;
 	for(let i=0; i < 1; i++){
 		url = ("http://127.0.0.1:5000/home")
 		credentials = true
 		xhr.open("POST",url, true)
 		xhr.withCredentials = true;
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send(`worker=${worker}`)
-		xhr.onload = function(){
-			if (xhr.status != 200){
-				alert("Something went wrong")
-			}else{
-				worker_result = JSON.parse(xhr.response)
-    				window.location.href = worker_result // response from the server	
-		}
+		console.log(`worker=${worker}`)
+	//	xhr.onload = function(){
+	//		if (xhr.status != 200){
+	//			alert("Something went wrong")
+	//		}else{
+	//			worker_result = JSON.parse(xhr.response)
+    	//			window.location.href = worker_result // response from the server	
+	//	}
 
-	}
+	//}
 	}
 }
 

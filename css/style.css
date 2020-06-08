@@ -93,3 +93,13 @@ tr {
 	text-align: center;
 	font-size: 40px;
 }
+
+.logout{
+	cursor: pointer;
+}
+.logout:hover{
+	color: white;
+}
+.card-body{
+	background-color: #3C99DC;
+}
