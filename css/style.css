@@ -102,4 +102,9 @@ tr {
 }
 .card-body{
 	background-color: #3C99DC;
+	text-align: center;
+	font-size: 50px;
+}
+.h5{
+	font-size: 50px;
 }

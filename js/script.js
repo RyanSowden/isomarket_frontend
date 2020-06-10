@@ -102,47 +102,123 @@ function closeForm() {
 }
 
 //function to post the worker to have value added to their account
-function workerAdd(){
+function worker1Add(){
 	let xhr = new XMLHttpRequest();
-	let worker = document.getElementById("worker").value;
-	for(let i=0; i < 1; i++){
-		url = ("http://127.0.0.1:5000/home")
-		credentials = true
-		xhr.open("POST",url, true)
-		xhr.withCredentials = true;
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		console.log(`worker=${worker}`)
-	//	xhr.onload = function(){
-	//		if (xhr.status != 200){
-	//			alert("Something went wrong")
-	//		}else{
-	//			worker_result = JSON.parse(xhr.response)
-    	//			window.location.href = worker_result // response from the server	
-	//	}
-
-	//}
-	}
-}
-
-function workerMinus(){
-	let xhr = new XMLHttpRequest();
-	let worker = document.getElementById("workerminus").value;
-	for(let i=0; i < 1; i++){
-		url = ("http://127.0.0.1:5000/home")
-		credentials = true
-		xhr.open("POST",url, true)
-		xhr.withCredentials = true;
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send(`worker=${worker}`)
-		xhr.onload = function(){
-			if (xhr.status != 200){
-				alert("Something went wrong")
-			}else{
-    				window.location.href = ('minus.html')	
+	let worker1 = document.getElementById("worker1").textContent;
+	url = ("http://127.0.0.1:5000/home")
+	credentials = true
+	xhr.open("POST",url, true)
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(`worker=${worker1}`)
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert("Something went wrong")
+		}else{
+			worker_result = JSON.parse(xhr.response)
+			window.location.href = worker_result // response from the server	
 		}
 
 	}
+	
+}
+function worker2Add(){
+	let xhr = new XMLHttpRequest();
+	let worker2 = document.getElementById("worker2").textContent;
+	url = ("http://127.0.0.1:5000/home")
+	credentials = true
+	xhr.open("POST",url, true)
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(`worker=${worker2}`)
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert("Something went wrong")
+		}else{
+			worker_result = JSON.parse(xhr.response)
+			window.location.href = worker_result // response from the server	
+		}
+
 	}
+	
+}
+function worker3Add(){
+	let xhr = new XMLHttpRequest();
+	let worker3 = document.getElementById("worker3").textContent;
+	url = ("http://127.0.0.1:5000/home")
+	credentials = true
+	xhr.open("POST",url, true)
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(`worker=${worker3}`)
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert("Something went wrong")
+		}else{
+			worker_result = JSON.parse(xhr.response)
+			window.location.href = worker_result // response from the server	
+		}
+
+	}
+	
+}
+
+function worker1Minus(){
+	let xhr = new XMLHttpRequest();
+	let worker1 = document.getElementById("worker1").textContent;
+	url = ("http://127.0.0.1:5000/home")
+	credentials = true
+	xhr.open("POST",url, true)
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(`worker=${worker1}`)
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert("Something went wrong")
+		}else{
+    			window.location.href = ('minus.html')	
+		}
+
+	}
+	
+}
+function worker2Minus(){
+	let xhr = new XMLHttpRequest();
+	let worker2 = document.getElementById("worker2").textContent;
+	url = ("http://127.0.0.1:5000/home")
+	credentials = true
+	xhr.open("POST",url, true)
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(`worker=${worker2}`)
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert("Something went wrong")
+		}else{
+    			window.location.href = ('minus.html')	
+		}
+
+	}
+	
+}
+function worker3Minus(){
+	let xhr = new XMLHttpRequest();
+	let worker3 = document.getElementById("worker3").textContent;
+	url = ("http://127.0.0.1:5000/home")
+	credentials = true
+	xhr.open("POST",url, true)
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(`worker=${worker3}`)
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert("Something went wrong")
+		}else{
+    			window.location.href = ('minus.html')	
+		}
+
+	}
+	
 }
 //function to show the balance to be added
 function showValue(){
