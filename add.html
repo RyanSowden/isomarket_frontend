@@ -19,9 +19,32 @@
         <![endif]-->
         </head>
 	<body onload='showValue()'>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+		   		<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          				<span class="icon-bar"></span>
+          				<span class="icon-bar"></span>
+         				<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="home.html">IsoMarket</a>
+				</div>
+      				<div class="collapse navbar-collapse" id="myNavbar">
+        				<ul class="nav navbar-nav">
+          					<li><a href="home.html">Home</a></li>
+        				</ul>
+        				<ul class="nav navbar-nav navbar-right">
+                				<li><a href="#"<span class="glyphicon glyphicon-log-out" onclick="logOut()"></span> Logout</a></li>
+        				</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class='pull-left'>
+			<button class='btn btn-warning' onclick='goBack()'>Back</button>
+		</div>
 		<h1 id='worker' class='h1'></h1>
 		<h2 id='value'class='h2'></h2>
-		<button class='btn btn-warning' onclick='goBack()'>Back</button>
 	<form name='values'>
 		<button class='btn btn-success' type='button' id='blinds' value='5' onclick='addNumbers(this)'>Blinds</button> 
 		<button class='btn btn-success' type='button' id='placemats' value='5' onclick='addNumbers(this)'>Placemats</button> 
@@ -51,18 +74,22 @@
 		<button class='btn btn-success' type='button' id='cleancar' value='100' onclick='addNumbers(this)'>Clean Car</button> 
 		<button class='btn btn-success' type='button' id='garage' value='100' onclick='addNumbers(this)'>Garage</button>
 		<button class='btn btn-success' type='button' id='heisroom' value='200' onclick='addNumbers(this)'>Heis Room</button> 
-		<button class='btn btn-success' type='button' id='cleanw' value='200' onclick='addNumbers(this)'>Clean Window<button> 
+		<button class='btn btn-success' type='button' id='cleanw' value='200' onclick='addNumbers(this)'>Clean Window</button> 
 		<button class='btn btn-success' type='button' id='myroom' value='250' onclick='addNumbers(this)'>My Room</button> 
 	</form>
+	<div class= 'text-center'>
 		<p id='result'></p>
 		<p id='sum'></p>
 		<button class='btn btn-primary' id='add'>Add</button>
-		
+		<button class='btn btn-info button' id='clear' onclick='clearDisplay()'>Clear</button>
+	</div>
 
 
 	</body>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/script.js"></script>
+	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	
+      	<script src="js/script.js"></script>
 </html>

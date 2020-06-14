@@ -88,19 +88,7 @@ function logOut(){
 function goBack(){
 	window.location.href = ("home.html")
 }
-// opening the add/minus form
-function openFormMinus() {
-  document.getElementById("minusForm").style.display = "block";
-}
-// opening the add/minus form
-function openFormAdd() {
-  document.getElementById("addForm").style.display = "block";
-}
-// closing the add/minus form
-function closeForm() {
-  document.getElementById("addForm").style.display = "none";
-}
-
+//function to clear numbers
 //function to post the worker to have value added to their account
 function worker1Add(){
 	let xhr = new XMLHttpRequest();
@@ -264,11 +252,21 @@ function addNumbers(result){ //fucntion to get the numbers on click and added to
 			xhr.withCredentials = true;
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xhr.send(`total=${total}`)
-			if (xhr.status == 200){
-				console.log(xhr.response)
+			xhr.onload = function() {
+				if (xhr.status == 200){
+					window.location.href = ('add.html')
+				}
 			}
 		}
 	}
+	//function to clear the data to be added 
+	document.getElementById('clear').onclick = function(){
+		document.getElementById('result').innerHTML= '';
+		addArr = [];
+
+	}
+
+
 }
 
 
@@ -287,14 +285,23 @@ function minusNumbers(result){ //fucntion to get the numbers on click and added 
 			let xhr = new XMLHttpRequest();
 			url = ("http://127.0.0.1:5000/minusvalue")
 			credentials = true
-			xhr.open("POST",url,false)
+			xhr.open("POST",url,true)
 			xhr.withCredentials = true;
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xhr.send(`total=${total}`)
-			if (xhr.status == 200){
-				console.log(xhr.response)
+			xhr.onload = function(){
+				if (xhr.status == 200){
+					window.location.href = ('minus.html')
+				}
 			}
 		}
+	}
+
+	//function to clear the data to be minused
+	document.getElementById('clear').onclick = function(){
+		document.getElementById('result').innerHTML= '';
+		minusArr = [];
+
 	}
 }
 
